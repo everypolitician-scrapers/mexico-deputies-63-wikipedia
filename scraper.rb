@@ -14,7 +14,7 @@ class MembersPage < Scraped::HTML
 
   field :members do
     (uninominal_members + proportional_members).each do |mem|
-      party = parties.find { |party| party[:image] = mem[:party_image] } || {}
+      party = parties.find { |party| party[:image] == mem[:party_image] } || {}
       mem[:party] = party[:name]
       mem[:party_id] = party[:id]
     end
