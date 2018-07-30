@@ -55,7 +55,7 @@ class LeftMemberRow < Scraped::HTML
   end
 
   field :id do
-    name_field.css('a/@wikidata').map(&:text).first
+    name_field.css('a').map { |a| a.attr('wikidata') }.first
   end
 
   field :area do
